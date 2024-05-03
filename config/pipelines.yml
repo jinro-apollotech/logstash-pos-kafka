@@ -1,0 +1,20 @@
+# This file is where you define your pipelines. You can define multiple.
+# For more information on multiple pipelines, see the documentation:
+#   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
+
+#- pipeline.id: main
+#  path.config: "/usr/share/logstash/pipeline"
+- pipeline.id: kafka-producer-matched
+  path.config: "/usr/share/logstash/pipeline/pos-kafka-log-matched.conf"
+
+- pipeline.id: kafka-producer-unmatched
+  path.config: "/usr/share/logstash/pipeline/pos-kafka-log-unmatched.conf"
+
+- pipeline.id: kafka-producer-sales
+  path.config: "/usr/share/logstash/pipeline/pos-kafka-log-sales.conf"
+
+- pipeline.id: kafka-producer-events
+  path.config: "/usr/share/logstash/pipeline/pos-kafka-log-events.conf"
+
+- pipeline.id: kafka-producer-reports
+  path.config: "/usr/share/logstash/pipeline/pos-kafka-log-reports.conf"

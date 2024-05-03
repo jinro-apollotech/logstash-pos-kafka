@@ -1,11 +1,12 @@
 version: '3'
 services:
-  pos-kafka-logstash-reports:
+  pos-kafka-producer-logstash:
     image: docker.elastic.co/logstash/logstash:8.11.0
-    mem_limit: 1048m
-    container_name: pos-kafka-logstash-reports
+    mem_limit: 2048m
+    container_name: pos-kafka-producer-logstash
     volumes:
       - ./config:/usr/share/logstash/config
       - ./pipeline-config:/usr/share/logstash/pipeline
+        # - logstash_logs:/var/lib/docker/containers   # Mount the log directory to a named volume
     ports:
       - "5048:5048"
