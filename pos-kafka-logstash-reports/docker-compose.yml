@@ -1,0 +1,11 @@
+version: '3'
+services:
+  pos-kafka-logstash-reports:
+    image: docker.elastic.co/logstash/logstash:8.11.0
+    mem_limit: 1048m
+    container_name: pos-kafka-logstash-reports
+    volumes:
+      - ./config:/usr/share/logstash/config
+      - ./pipeline-config:/usr/share/logstash/pipeline
+    ports:
+      - "5048:5048"
